@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // SVG Circle Animation
-  const bubbles = document.querySelectorAll('#circle');
+  // Получаем элементы SVG
+  const bubbles = document.querySelectorAll('.circle');
   const mainCircle = document.getElementById('main_circle');
   
-  // Animation parameters
+  // Параметры анимации
   const bubbleCount = bubbles.length;
   const radius = 130;
   const centerX = 171.5;
   const centerY = 175.6;
   
-  // Animate each bubble
+  // Анимация каждого пузыря
   bubbles.forEach((bubble, index) => {
     const angle = (index / bubbleCount) * Math.PI * 2;
     const distance = radius * (0.7 + Math.random() * 0.3);
@@ -17,12 +17,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const x = centerX + Math.cos(angle) * distance;
     const y = centerY + Math.sin(angle) * distance;
     
-    // Set initial position
+    // Устанавливаем начальную позицию
     gsap.set(bubble, {
       attr: { cx: x, cy: y, r: 5 + Math.random() * 10 }
     });
     
-    // Create animation
+    // Создаем анимацию
     const timeline = gsap.timeline({ 
       repeat: -1,
       yoyo: true,
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  // Main circle pulse animation
+  // Пульсация главного круга
   gsap.to(mainCircle, {
     duration: 4,
     attr: { r: radius * 1.1 },
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ease: "sine.inOut"
   });
   
-  // Scroll animations
+  // Анимация при скролле
   const animateOnScroll = () => {
     const elements = document.querySelectorAll('.company-wrapper, .job-wrapper, .skills-column');
     
@@ -57,7 +57,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const elementPosition = element.getBoundingClientRect().top;
       const screenPosition = window.innerHeight / 1.3;
       
-      if (elementPosition < screenPosition) {
+      // Проверяем, если элемент на экране
+      if (elementPosition < screenPosition && element.style.opacity == 0) {
         gsap.to(element, {
           opacity: 1,
           y: 0,
@@ -68,16 +69,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   };
   
-  // Initialize scroll animations
+  // Устанавливаем начальные значения
   gsap.set('.company-wrapper, .job-wrapper, .skills-column', {
     opacity: 0,
     y: 20
   });
   
+  // Инициализация скролла
   window.addEventListener('scroll', animateOnScroll);
-  animateOnScroll(); // Run once on load
+  window.addEventListener('load', animateOnScroll); // Запуск при загрузке
   
-  // Smooth scrolling for anchor links
+  // Плавный скролл по якорям
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
