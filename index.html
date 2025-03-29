@@ -196,113 +196,85 @@
   </div>
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js'></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // SVG Bubble Animation
-      const bubbles = [];
-      for (let i = 1; i <= 10; i++) {
-        bubbles.push(document.getElementById(`circle${i}`));
-      }
-      
-      const radius = 130;
-      const centerX = 171.5;
-      const centerY = 175.6;
-      
-      // Animate each bubble
-      bubbles.forEach((bubble, index) => {
-        const angle = (index / bubbles.length) * Math.PI * 2;
-        const distance = radius * (0.7 + Math.random() * 0.3);
-        
-        const x = centerX + Math.cos(angle) * distance;
-        const y = centerY + Math.sin(angle) * distance;
-        
-        // Set initial position
-        gsap.set(bubble, {
-          attr: { 
-            cx: x,
-            cy: y,
-            r: 5 + Math.random() * 10
-          }
-        });
-        
-        // Create animation
-        const timeline = gsap.timeline({ 
-          repeat: -1,
-          yoyo: true,
-          delay: Math.random() * 2
-        });
-        
-        timeline.to(bubble, {
-          duration: 3 + Math.random() * 4,
-          attr: { 
-            cx: centerX + Math.cos(angle + 0.5) * distance * 0.8,
-            cy: centerY + Math.sin(angle + 0.5) * distance * 0.8,
-            r: 8 + Math.random() * 7
-          },
-          ease: "sine.inOut"
-        });
-      });
-      
-      // Main circle pulse animation
-      const mainCircle = document.getElementById('main_circle');
-      gsap.to(mainCircle, {
-        duration: 4,
-        attr: { r: radius * 1.1 },
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-      });
-      
-      // Code background animation
-      const codeBackground = document.getElementById('code-background');
-      const codeSnippets = [
-        "def check_vulnerability(target):",
-        "firewall = configure_firewall(rules)",
-        "const detectIntrusion = (logs) => {",
-        "nmap -sV -O -T4 target_ip",
-        "public class SecurityAudit {",
-        "docker run --security-opt seccomp=profile.json",
-        "SELECT * FROM users WHERE id = ?",
-        "func encryptData(data []byte) ([]byte, error) {",
-        "if (request.isMalicious()) { block(request); }",
-        "# Security headers for web app",
-        "openssl req -new -x509 -keyout server.pem",
-        "while (packet = capture.next()) { analyze(packet); }"
-      ];
-      
-      function createCodeLine() {
-        const line = document.createElement('div');
-        line.className = 'code-line';
-        line.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
-        
-        // Random position and animation
-        const startX = Math.random() * 100;
-        const duration = 15 + Math.random() * 30;
-        const opacity = 0.1 + Math.random() * 0.3;
-        
-        line.style.left = `${startX}%`;
-        line.style.opacity = opacity;
-        line.style.fontSize = `${0.7 + Math.random() * 0.6}rem`;
-        
-        codeBackground.appendChild(line);
-        
-        // Animate from bottom to top
-        gsap.to(line, {
-          y: -window.innerHeight - 100,
-          duration: duration,
-          ease: "none",
-          onComplete: () => line.remove()
-        });
-        
-        // Schedule next line
-        setTimeout(createCodeLine, 500 + Math.random() * 1500);
-      }
-      
-      // Start creating code lines
-      createCodeLine();
-      createCodeLine();
-      createCodeLine();
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 1. Анимация пузырьков вокруг фото
+  const bubbles = document.querySelectorAll('.bubble');
+  const centerX = 171.5;
+  const centerY = 175.6;
+  const radius = 130;
+
+  bubbles.forEach((bubble, i) => {
+    // Начальная позиция
+    const angle = (i / bubbles.length) * Math.PI * 2;
+    const x = centerX + Math.cos(angle) * radius * 0.8;
+    const y = centerY + Math.sin(angle) * radius * 0.8;
+    
+    gsap.set(bubble, {
+      attr: { cx: x, cy: y, r: 8 }
     });
-  </script>
+
+    // Анимация движения
+    gsap.to(bubble, {
+      duration: 3 + Math.random() * 2,
+      attr: {
+        cx: centerX + Math.cos(angle + 0.5) * radius * 0.7,
+        cy: centerY + Math.sin(angle + 0.5) * radius * 0.7,
+        r: 12
+      },
+      repeat: -1,
+      yoyo: true,
+      delay: Math.random() * 1,
+      ease: "sine.inOut"
+    });
+  });
+
+  // 2. Анимация главного круга
+  const mainCircle = document.getElementById('main_circle');
+  gsap.to(mainCircle, {
+    duration: 4,
+    attr: { r: radius * 1.1 },
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut"
+  });
+
+  // 3. Анимация строк кода на фоне
+  const codeLines = [
+    "nmap -sV -O -T4 target_ip",
+    "def check_vulnerability(target):",
+    "const detectIntrusion = (logs) => {",
+    "firewall.configure(rules)",
+    "docker run --security-opt seccomp=profile.json",
+    "openssl req -new -x509 -keyout server.pem"
+  ];
+
+  function createCodeLine() {
+    const line = document.createElement('div');
+    line.className = 'code-line';
+    line.textContent = codeLines[Math.floor(Math.random() * codeLines.length)];
+    
+    line.style.left = `${Math.random() * 90}%`;
+    line.style.opacity = 0.1 + Math.random() * 0.2;
+    line.style.fontSize = `${0.8 + Math.random() * 0.4}rem`;
+    
+    document.getElementById('code-background').appendChild(line);
+    
+    gsap.to(line, {
+      y: -window.innerHeight - 100,
+      duration: 20 + Math.random() * 20,
+      ease: "none",
+      onComplete: () => line.remove()
+    });
+    
+    setTimeout(createCodeLine, 1000 + Math.random() * 2000);
+  }
+
+  // Запускаем 3 линии одновременно
+  createCodeLine();
+  createCodeLine();
+  createCodeLine();
+});
+</script>
 </body>
 </html>
