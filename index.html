@@ -1,152 +1,308 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>CV</title>
-  <meta name="viewport" content="width=device-width">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-<link rel="stylesheet" href="./style.css">
-<link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <title>Alex Hellberg - Cybersecurity Specialist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cybersecurity specialist with expertise in penetration testing, network security and incident response">
+  <meta name="keywords" content="cybersecurity, pentest, information security, security architect">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <style>
+    /* CSS for the code background animation */
+    #code-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .code-line {
+      position: absolute;
+      color: rgba(46, 204, 113, 0.15);
+      font-family: 'Courier New', monospace;
+      white-space: nowrap;
+      user-select: none;
+      bottom: -50px;
+    }
+  </style>
 </head>
 
 <body>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<div class="resume-wrapper">
-	<section class="profile section-padding">
-		<div class="container">
-			<div class="picture-resume-wrapper">
-        <div class="picture-resume">
-        <span><img src="https://media.licdn.com/dms/image/C4D03AQH79mObW8i1sg/profile-displayphoto-shrink_800_800/0/1557756960157?e=2147483647&v=beta&t=iDpk-_oHWQwIOZkwEnojoN1IzId9oWcTfmBJs9cS1_o" alt="" /></span>
-        <svg version="1.1" viewBox="0 0 350 350">
+  <!-- Animated code background -->
+  <div id="code-background"></div>
   
-  <defs>
-    <filter id="goo">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
-      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -9" result="cm" />
-    </filter>
-  </defs>
-  
-  
-<g filter="url(#goo)" >  
-  
-  <circle id="main_circle" class="st0" cx="171.5" cy="175.6" r="130"/>
-  
-  <circle id="circle" class="bubble0 st1" cx="171.5" cy="175.6" r="122.7"/>
-  <circle id="circle" class="bubble1 st1" cx="171.5" cy="175.6" r="122.7"/>
-  <circle id="circle" class="bubble2 st1" cx="171.5" cy="175.6" r="122.7"/>
-  <circle id="circle" class="bubble3 st1" cx="171.5" cy="175.6" r="122.7"/>
-  <circle id="circle" class="bubble4 st1" cx="171.5" cy="175.6" r="122.7"/>
-  <circle id="circle" class="bubble5 st1" cx="171.5" cy="175.6" r="122.7"/>
-  <circle id="circle" class="bubble6 st1" cx="171.5" cy="175.6" r="122.7"/>
-  <circle id="circle" class="bubble7 st1" cx="171.5" cy="175.6" r="122.7"/>
-  <circle id="circle" class="bubble8 st1" cx="171.5" cy="175.6" r="122.7"/>
-  <circle id="circle" class="bubble9 st1" cx="171.5" cy="175.6" r="122.7"/>
-  <circle id="circle" class="bubble10 st1" cx="171.5" cy="175.6" r="122.7"/>
-
-</g>  
-</svg>
-      </div>
-         <div class="clearfix"></div>
- </div>
-      <div class="name-wrapper">
-        <h1>Alex <br/>Hellberg</h1>
-      </div>
-      <div class="clearfix"></div>
-      <div class="contact-info clearfix">
-      	<ul class="list-titles">
-      		<li>Mail</li>
-      		<li>Web</li>
-		<li>Github</li>
-      		<li>Home</li>
-      	</ul>
-        <ul class="list-content ">
-        	<li>alex_hellberg@protonmail.ch</li>
-        	<li><a href="https://alexbergh.github.io">alexbergh.github.io</a></li>
-          	<li><a href="https://github.com/alexbergh">github.com/alexbergh</a></li>
-        	<li>Kaliningrad, RU</li>
-        </ul>
-      </div>
-      <div class="contact-presentation"> 
-      	<p><span class="bold"></span> CyberSec / Pentest </p>
-      </div>
-      <div class="contact-social clearfix">
-      	<ul class="list-titles">
-      		<li>Telegram</li>
-		<li>Session</li>
-      	</ul>
-        <ul class="list-content"> 
-		<li><a href="https://t.me/a_hberg">@a_hberg</a></li>
-		<li><img src="./qr.svg" alt="QR Code"></li>
-      	</ul>
-      </div>
-		</div>
-	</section>
-  
-  <section class="experience section-padding">
-  	<div class="container">
-  		<h3 class="experience-title">Experience. 3 last places.</h3>
-      <div class="experience-wrapper">
-      	<div class="company-wrapper clearfix">
-      		<div class="experience-title">X5</div> 
-          <div class="time">Jul 2024 - Present</div>
-      	</div>
+  <div class="resume-wrapper">
+    <section class="profile section-padding">
+      <div class="container">
+        <div class="picture-resume-wrapper">
+          <div class="picture-resume">
+            <span><img src="https://media.licdn.com/dms/image/C4D03AQH79mObW8i1sg/profile-displayphoto-shrink_800_800/0/1557756960157?e=2147483647&v=beta&t=iDpk-_oHWQwIOZkwEnojoN1IzId9oWcTfmBJs9cS1_o" alt="Alex Hellberg" /></span>
+            <svg version="1.1" viewBox="0 0 350 350" id="profile-svg">
+              <defs>
+                <filter id="goo">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+                  <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -9" result="cm" />
+                </filter>
+              </defs>
+              <g filter="url(#goo)">  
+                <circle id="main_circle" class="st0" cx="171.5" cy="175.6" r="130"/>
+                <circle id="circle1" class="bubble st1" cx="171.5" cy="175.6" r="122.7"/>
+                <circle id="circle2" class="bubble st1" cx="171.5" cy="175.6" r="122.7"/>
+                <circle id="circle3" class="bubble st1" cx="171.5" cy="175.6" r="122.7"/>
+                <circle id="circle4" class="bubble st1" cx="171.5" cy="175.6" r="122.7"/>
+                <circle id="circle5" class="bubble st1" cx="171.5" cy="175.6" r="122.7"/>
+                <circle id="circle6" class="bubble st1" cx="171.5" cy="175.6" r="122.7"/>
+                <circle id="circle7" class="bubble st1" cx="171.5" cy="175.6" r="122.7"/>
+                <circle id="circle8" class="bubble st1" cx="171.5" cy="175.6" r="122.7"/>
+                <circle id="circle9" class="bubble st1" cx="171.5" cy="175.6" r="122.7"/>
+                <circle id="circle10" class="bubble st1" cx="171.5" cy="175.6" r="122.7"/>
+              </g>  
+            </svg>
+          </div>
+          <div class="clearfix"></div>
+        </div>
         
-        <div class="job-wrapper clearfix">
-        	<div class="experience-title">CSE </div> 
-          <div class="company-description">
-          	<p>Managing the day-to-day operations of the information security team. Identifying and mitigating information security risks. Conducting security Audits and assessments. Responding to security incidents and breaches.  </p> 
+        <div class="name-wrapper">
+          <h1>Alex <br/>Hellberg</h1>
+          <h2>Cybersecurity Specialist</h2>
+        </div>
+        
+        <div class="clearfix"></div>
+        
+        <div class="contact-info clearfix">
+          <ul class="list-titles">
+            <li><i class="fas fa-envelope"></i> Email</li>
+            <li><i class="fab fa-telegram"></i> Telegram</li>
+            <li><i class="fas fa-globe"></i> Website</li>
+            <li><i class="fab fa-github"></i> GitHub</li>
+            <li><i class="fas fa-map-marker-alt"></i> Location</li>
+          </ul>
+          <ul class="list-content">
+            <li><a href="mailto:alex_hellberg@protonmail.ch">alex_hellberg@protonmail.ch</a></li>
+            <li><a href="https://t.me/a_hberg" target="_blank">@a_hberg</a></li>
+            <li><a href="https://alexbergh.github.io" target="_blank">alexbergh.github.io</a></li>
+            <li><a href="https://github.com/alexbergh" target="_blank">github.com/alexbergh</a></li>
+            <li>Kaliningrad, RU</li>
+          </ul>
+        </div>
+        
+        <div class="contact-presentation"> 
+          <p style="font-family: 'Courier New', monospace;">Experienced cybersecurity professional specializing in security architecture, penetration testing, and network security with leadership experience in information security teams.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="experience section-padding">
+      <div class="container">
+        <h3 class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</h3>
+        
+        <div class="experience-wrapper">
+          <div class="company-wrapper clearfix">
+            <div class="experience-title">RTK-IB LLC (<a href="https://rt-is.ru" target="_blank">rt-is.ru</a>)</div> 
+            <div class="time">Sep 2024 - Present</div>
+          </div>
+          
+          <div class="job-wrapper clearfix">
+            <div class="experience-title">Security Architect</div> 
+            <div class="company-description">
+              <ul>
+                <li>Architectural support for projects on creation or development of Information Systems (IS)</li>
+                <li>Implementation support of complex infrastructure projects for security assurance</li>
+                <li>Development of Security Services for the Company</li>
+                <li>Participation in presales processes including customer infrastructure assessment and audit</li>
+                <li>Preparation of specifications, diagrams and technical solution descriptions</li>
+                <li>Effort estimation for development, implementation and maintenance</li>
+                <li>Preparation of technical requirements and project schedules</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="company-wrapper clearfix">
+            <div class="experience-title">X5 Group</div> 
+            <div class="time">Jul 2024 - Sep 2024</div>
+          </div>
+          
+          <div class="job-wrapper clearfix">
+            <div class="experience-title">Chief Security Engineer (CSE)</div> 
+            <div class="company-description">
+              <ul>
+                <li>Leading the information security team and managing day-to-day operations</li>
+                <li>Identifying and mitigating information security risks across the organization</li>
+                <li>Conducting comprehensive security audits and vulnerability assessments</li>
+                <li>Developing and implementing incident response protocols</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="company-wrapper clearfix">
+            <div class="experience-title">Inter RAO - Electric Power Plants, JSC</div> 
+            <div class="time">Jun 2023 - Jun 2024</div> 
+          </div>
+          
+          <div class="job-wrapper clearfix">
+            <div class="experience-title">Head of Information Security Group</div> 
+            <div class="company-description">
+              <ul>
+                <li>Managed a team of security specialists overseeing critical infrastructure</li>
+                <li>Developed and enforced security policies compliant with industry regulations</li>
+                <li>Conducted penetration tests and security assessments for power plants</li>
+                <li>Coordinated response to security incidents and forensic investigations</li>
+              </ul>
+            </div>
           </div>
         </div>
         
-        <div class="company-wrapper clearfix">
-      		<div class="experience-title">Inter RAO - Electric Power Plants,JSC</div> 
-          <div class="time">Jun 2023 - Jun 2024 </div> 
-      	</div>
-        
-         <div class="job-wrapper clearfix">
-        	<div class="experience-title">Head of the Information Security Group </div> 
-          <div class="company-description">
-          	<p>Managing the day-to-day operations of the information security team. Identifying and mitigating information security risks. Conducting security Audits and assessments. Responding to security incidents and breaches.</p> 
-          </div>
-        </div>
-        
-        <div class="company-wrapper clearfix">
-      		<div class="experience-title">KSCITB</div> 
-          <div class="time">Jun 2019 - Jun 2021</div>
-      	</div> 
-        
-         <div class="job-wrapper clearfix">
-        	<div class="experience-title">Chief Information Security Specialist </div>
-          <div class="company-description">
-          	<p>Strategic planning and management of information security risks, ensuring compliance with security policies and technical management. Coordination with other departments and monitoring the effectiveness of security systems.</p> 
-          </div>
-        </div>
-        
-      </div>
-      
-      <div class="section-wrapper clearfix">
-      	<h3 class="section-title">Skills</h3>
-        	<ul>
-        		<li class="skill-percentage">Network Security</li>
-        		<li class="skill-percentage">Firewall Configuration</li>
-        		<li class="skill-percentage">Vulnerability Assessment</li>
-        		<li class="skill-percentage">Security Policy Development</li>
-        		<li class="skill-percentage">Incident Response</li>
-        		<li class="skill-percentage">Intrusion Detection/Prevention</li>
-            <li class="skill-percentage">Pentest</li>
+        <div class="section-wrapper clearfix">
+          <h3 class="section-title"><i class="fas fa-code"></i> Technical Skills</h3>
+          <div class="skills-container">
+            <div class="skills-column">
+              <h4>Security Expertise</h4>
+              <ul>
+                <li class="skill-percentage">Network Security</li>
+                <li class="skill-percentage">Penetration Testing</li>
+                <li class="skill-percentage">Vulnerability Assessment</li>
+                <li class="skill-percentage">Incident Response</li>
+                <li class="skill-percentage">Firewall Configuration</li>
+                <li class="skill-percentage">Intrusion Detection/Prevention</li>
+              </ul>
+            </div>
             
-        	</ul>
-        <h3 align="letf"> Github Stats </h3>
-        <p>&nbsp;<img align="center" src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=alexbergh&show_icons=true&theme=dark" alt="alexbergh" />
-        </p>
+            <div class="skills-column">
+              <h4>Management & Compliance</h4>
+              <ul>
+                <li class="skill-percentage">Security Policy Development</li>
+                <li class="skill-percentage">Risk Management</li>
+                <li class="skill-percentage">Security Audits</li>
+                <li class="skill-percentage">Team Leadership</li>
+                <li class="skill-percentage">Regulatory Compliance</li>
+                <li class="skill-percentage">Security Awareness Training</li>
+              </ul>
+            </div>
+          </div>
+          
+          <h3 class="section-title"><i class="fab fa-github"></i> GitHub Activity</h3>
+          <div class="github-stats">
+            <img src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=alexbergh&show_icons=true&theme=dark&count_private=true&hide_border=true&line_height=24" alt="GitHub Stats" style="width: 100%; max-width: 400px;"/>
+          </div>
+        </div>
       </div>
-      
-  	</div>
-  </section>
-  
-  <div class="clearfix"></div>
-</div>
-  <script src='//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js'></script><script  src="./script.js"></script>
+    </section>
+  </div>
 
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js'></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // SVG Bubble Animation
+      const bubbles = [];
+      for (let i = 1; i <= 10; i++) {
+        bubbles.push(document.getElementById(`circle${i}`));
+      }
+      
+      const radius = 130;
+      const centerX = 171.5;
+      const centerY = 175.6;
+      
+      // Animate each bubble
+      bubbles.forEach((bubble, index) => {
+        const angle = (index / bubbles.length) * Math.PI * 2;
+        const distance = radius * (0.7 + Math.random() * 0.3);
+        
+        const x = centerX + Math.cos(angle) * distance;
+        const y = centerY + Math.sin(angle) * distance;
+        
+        // Set initial position
+        gsap.set(bubble, {
+          attr: { 
+            cx: x,
+            cy: y,
+            r: 5 + Math.random() * 10
+          }
+        });
+        
+        // Create animation
+        const timeline = gsap.timeline({ 
+          repeat: -1,
+          yoyo: true,
+          delay: Math.random() * 2
+        });
+        
+        timeline.to(bubble, {
+          duration: 3 + Math.random() * 4,
+          attr: { 
+            cx: centerX + Math.cos(angle + 0.5) * distance * 0.8,
+            cy: centerY + Math.sin(angle + 0.5) * distance * 0.8,
+            r: 8 + Math.random() * 7
+          },
+          ease: "sine.inOut"
+        });
+      });
+      
+      // Main circle pulse animation
+      const mainCircle = document.getElementById('main_circle');
+      gsap.to(mainCircle, {
+        duration: 4,
+        attr: { r: radius * 1.1 },
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+      
+      // Code background animation
+      const codeBackground = document.getElementById('code-background');
+      const codeSnippets = [
+        "def check_vulnerability(target):",
+        "firewall = configure_firewall(rules)",
+        "const detectIntrusion = (logs) => {",
+        "nmap -sV -O -T4 target_ip",
+        "public class SecurityAudit {",
+        "docker run --security-opt seccomp=profile.json",
+        "SELECT * FROM users WHERE id = ?",
+        "func encryptData(data []byte) ([]byte, error) {",
+        "if (request.isMalicious()) { block(request); }",
+        "# Security headers for web app",
+        "openssl req -new -x509 -keyout server.pem",
+        "while (packet = capture.next()) { analyze(packet); }"
+      ];
+      
+      function createCodeLine() {
+        const line = document.createElement('div');
+        line.className = 'code-line';
+        line.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
+        
+        // Random position and animation
+        const startX = Math.random() * 100;
+        const duration = 15 + Math.random() * 30;
+        const opacity = 0.1 + Math.random() * 0.3;
+        
+        line.style.left = `${startX}%`;
+        line.style.opacity = opacity;
+        line.style.fontSize = `${0.7 + Math.random() * 0.6}rem`;
+        
+        codeBackground.appendChild(line);
+        
+        // Animate from bottom to top
+        gsap.to(line, {
+          y: -window.innerHeight - 100,
+          duration: duration,
+          ease: "none",
+          onComplete: () => line.remove()
+        });
+        
+        // Schedule next line
+        setTimeout(createCodeLine, 500 + Math.random() * 1500);
+      }
+      
+      // Start creating code lines
+      createCodeLine();
+      createCodeLine();
+      createCodeLine();
+    });
+  </script>
 </body>
 </html>
