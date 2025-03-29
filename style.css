@@ -311,23 +311,4 @@ body {
   .section-title {
     font-size: 1.5rem;
   }
-
-  #code-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    overflow: hidden;
-}
-
-.code-line {
-  position: absolute;
-  font-family: 'Courier New', monospace;
-  color: rgba(46, 204, 113, 0.15);
-  white-space: nowrap;
-  bottom: -2em;
-  user-select: none;
-  }
 }
