@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Hellberg | Cybersecurity Specialist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0a0a12;
+            --secondary: #00f6ff;
+            --accent: #ff2a6d;
+            --light: #d1f7ff;
+            --dark: #010113;
+            --text: #8b8b9a;
+            --highlight: #1a1a2e;
+            --neon-shadow: 0 0 10px rgba(0, 246, 255, 0.7);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', 'Fira Code', monospace;
+        }
+        
+        body {
+            background-color: var(--primary);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                linear-gradient(rgba(0, 246, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 246, 255, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: rgba(10, 10, 18, 0.95);
+            color: var(--light);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(0, 246, 255, 0.2);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-right: 10px;
+            text-shadow: var(--neon-shadow);
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--light);
+            text-shadow: var(--neon-shadow);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            position: relative;
+            text-shadow: var(--neon-shadow);
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            text-shadow: var(--neon-shadow);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--primary));
+            z-index: -1;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        
+        .hero-text {
+            flex: 1;
+        }
+        
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .profile-circle {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            border: 3px solid var(--secondary);
+            overflow: hidden;
+            position: relative;
+            box-shadow: 
+                0 0 20px rgba(0, 246, 255, 0.5),
+                inset 0 0 20px rgba(0, 246, 255, 0.3);
+        }
+        
+        .profile-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero h2 {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-weight: 400;
+            text-shadow: var(--neon-shadow);
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--light);
+            margin-bottom: 20px;
+            line-height: 1.1;
+            text-shadow: var(--neon-shadow);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+            color: var(--text);
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-item i {
+            color: var(--secondary);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .contact-item a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-item a:hover {
+            color: var(--secondary);
+        }
+        
+        /* About Section */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--light);
+            position: relative;
+            white-space: nowrap;
+            text-shadow: var(--neon-shadow);
+        }
+        
+        .section-title h2::before {
+            content: '>';
+            color: var(--secondary);
+            font-size: 1.5rem;
+            margin-right: 10px;
+            font-weight: 400;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 300px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--secondary), transparent);
+            margin-left: 20px;
+            position: relative;
+            top: 10px;
+        }
+        
+        .about-content {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 2;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .skill-category h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            text-shadow: var(--neon-shadow);
+        }
+        
+        .skills {
+            display: grid;
+            gap: 10px;
+        }
+        
+        .skills li {
+            color: var(--light);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .skills li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+        
+        /* Experience Section */
+        .experience .section-title h2::before {
+            content: '>';
+        }
+        
+        .terminal {
+            background-color: var(--dark);
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.5),
+                inset 0 0 10px rgba(0, 246, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 246, 255, 0.2);
+        }
+        
+        .terminal-header {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .terminal-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .btn-red { background-color: #ff5f56; }
+        .btn-yellow { background-color: #ffbd2e; }
+        .btn-green { background-color: #27c93f; }
+        
+        .terminal-title {
+            color: var(--text);
+            font-size: 0.9rem;
+            margin-left: 10px;
+        }
+        
+        .command-line {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .prompt {
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+        
+        .command {
+            color: var(--light);
+            font-family: 'Fira Code', monospace;
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: var(--secondary);
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .job-title {
+            color: var(--light);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        .job-company {
+            color: var(--secondary);
+        }
+        
+        .job-period {
+            color: var(--text);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        
+        .job-description {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .job-description::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+        
+        /* Projects Section */
+        .projects .section-title h2::before {
+            content: '>';
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+        
+        .project-card {
+            background-color: var(--highlight);
+            border-radius: 5px;
+            padding: 30px;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            border: 1px solid rgba(0, 246, 255, 0.1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 10px 20px rgba(0, 246, 255, 0.2),
+                inset 0 0 10px rgba(0, 246, 255, 0.1);
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            background: linear-gradient(135deg, rgba(0, 246, 255, 0.1) 0%, rgba(0, 246, 255, 0) 100%);
+            z-index: -1;
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .project-folder {
+            color: var(--secondary);
+            font-size: 2.5rem;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .project-link {
+            color: var(--light);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .project-link:hover {
+            color: var(--secondary);
+        }
+        
+        .project-title {
+            color: var(--light);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .project-description {
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .tech-item {
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            color: var(--text);
+            border: 1px solid rgba(0, 246, 255, 0.3);
+            padding: 3px 8px;
+            border-radius: 3px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            text-align: center;
+        }
+        
+        .contact .section-title {
+            justify-content: center;
+        }
+        
+        .contact .section-title h2::before {
+            content: '>';
+        }
+        
+        .contact h3 {
+            font-size: 2.5rem;
+            color: var(--light);
+            margin-bottom: 20px;
+            text-shadow: var(--neon-shadow);
+        }
+        
+        .contact p {
+            max-width: 600px;
+            margin: 0 auto 50px;
+            color: var(--text);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid rgba(0, 246, 255, 0.2);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social-link {
+            color: var(--light);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-link:hover {
+            color: var(--secondary);
+        }
+        
+        .footer-text {
+            color: var(--text);
+            font-size: 0.9rem;
+            font-family: 'Courier New', monospace;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-text {
+                margin-bottom: 50px;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title h2::after {
+                width: 200px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+                border-bottom: 1px solid rgba(0, 246, 255, 0.2);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                padding: 10px 20px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2::after {
+                width: 100px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .profile-circle {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .section-title h2::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-user-secret"></i>
+                <h1>Alex Hellberg</h1>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h2>CYBERSECURITY SPECIALIST</h2>
+                <h1>Alex Hellberg</h1>
+                <p>Experienced cybersecurity professional specializing in security architecture, penetration testing, and network security with leadership experience in information security teams.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:alex_hellberg@protonmail.ch">alex_hellberg@protonmail.ch</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-telegram"></i>
+                        <a href="https://t.me/a_hberg" target="_blank">@a_hberg</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <a href="https://alexbergh.github.io" target="_blank">alexbergh.github.io</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/alexbergh" target="_blank">github.com/alexbergh</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kaliningrad, RU</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-circle">
+                    <img src="https://media.licdn.com/dms/image/C4D03AQH79mObW8i1sg/profile-displayphoto-shrink_800_800/0/1557756960157?e=2147483647&v=beta&t=iDpk-_oHWQwIOZkwEnojoN1IzId9oWcTfmBJs9cS1_o" alt="Alex Hellberg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Experienced cybersecurity professional specializing in security architecture, penetration testing, and network security with leadership experience in information security teams.</p>
+                    
+                    <div class="skills-container">
+                        <div class="skill-category">
+                            <h3>Security Expertise</h3>
+                            <ul class="skills">
+                                <li>Network Security</li>
+                                <li>Penetration Testing</li>
+                                <li>Vulnerability Assessment</li>
+                                <li>Incident Response</li>
+                                <li>Firewall Configuration</li>
+                                <li>Intrusion Detection/Prevention</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h3>Management & Compliance</h3>
+                            <ul class="skills">
+                                <li>Security Policy Development</li>
+                                <li>Risk Management</li>
+                                <li>Security Audits</li>
+                                <li>Team Leadership</li>
+                                <li>Regulatory Compliance</li>
+                                <li>Security Awareness Training</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h3>Technical Skills</h3>
+                            <ul class="skills">
+                                <li>SIEM Solutions</li>
+                                <li>Cloud Security (AWS, Azure)</li>
+                                <li>Cryptography</li>
+                                <li>Python/Bash Scripting</li>
+                                <li>Forensic Tools</li>
+                                <li>Threat Modeling</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section experience" id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Professional Experience</h2>
+            </div>
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-btn btn-red"></div>
+                    <div class="terminal-btn btn-yellow"></div>
+                    <div class="terminal-btn btn-green"></div>
+                    <div class="terminal-title">experience.sh</div>
+                </div>
+                <div class="command-line">
+                    <span class="prompt">$</span>
+                    <span class="command">cat work_experience.txt</span>
+                    <span class="cursor"></span>
+                </div>
+                <div id="experienceContent">
+                    <!-- RTK-IB LLC -->
+                    <div class="command-line">
+                        <span class="prompt">></span>
+                        <span class="command" style="color: var(--secondary);">RTK-IB LLC (rt-is.ru)</span>
+                    </div>
+                    <div class="command-line" style="margin-left: 20px;">
+                        <span class="prompt">></span>
+                        <span class="command">Sep 2024 - Present | Security Architect</span>
+                    </div>
+                    <div class="command-line" style="margin-left: 40px;">
+                        <span class="prompt">></span>
+                        <span class="command">Architectural support for projects on creation or development of Information Systems (IS)</span>
+                    </div>
+                    <div class="command-line" style="margin-left: 40px;">
+                        <span class="prompt">></span>
+                        <span class="command">Implementation support of complex infrastructure projects for security assurance</span>
+                    </div>
+                    <div class="command-line" style="margin-left: 40px;">
+                        <span class="prompt">></span>
+                        <span class="command">Development of Security Services for the Company</span>
+                    </div>
+                    <div class="command-line" style="margin-left: 40px;">
+                        <span class="prompt">></span>
+                        <span class="command">Participation in presales processes including customer infrastructure assessment and audit</span>
+                    </div>
+                    <div class="command-line" style="margin-left: 40px;">
+                        <span class="prompt">></span>
+                        <span class="command">Preparation of specifications, diagrams and technical solution descriptions</span>
+                    </div>
+                    <div class="command-line" style="margin-left: 40px;">
+                        <span class="prompt">></span>
+                        <span class="command">Effort estimation for development, implementation and maintenance</span>
+                    </div>
+                    <div class="command-line" style="margin-left: 40px;">
+                        <span class="prompt">></span>
+                        <span class="command">Preparation of technical requirements and project schedules</span>
+                    </div>
+                    
+                    <div class="command-line"><br></div>
+                    
+                    <!-- X5 Group -->
+                    <div class="command-line">
+                        <span class="prompt">></span>
+                        <span class="command" style="color: var(--secondary);">X5 Group</span>
+                    </div>
+                    <div class="command-line" style="margin-left: 20px;">
+                        <span class="prompt">></span>
+                        <span class="command">Jul 2024 - Sep 2024 | Chief Security Engineer (CSE)</span>
+                    </div>
+                    <div class="command-line" style="margin-left: 40px;">
+                        <span class="prompt">></span>
+                        <span class="command">Leading the information security team and managing day-to-day operations</span>
+                    </div>
+                    <div class="command-line" style="margin-left: 40px;">
+                        <span class="prompt">></span>
+                        <span class="command">Identifying and mitigating information security risks across the organization</span>
+                    </div>
+                    <div class="command-line" style="margin-left: 40px;">
+                        <span class="prompt">></span>
+                        <span class="command">Conducting comprehensive security audits and vulnerability assessments</span>
+                    </div>
+                    <div class="command-line" style="margin-left: 40px;">
+                        <span class="prompt">></span>
+                        <span class="command">Developing and implementing incident response protocols</span>
+                    </div>
+                    
+                    <div class="command-line"><br></div>
+                    
+                    <!-- Inter RAO -->
+                    <div class="command-line">
+                        <span class="prompt">></span>
+                        <span class="command" style="color: var(--secondary);">Inter RAO - Electric Power Plants, JSC</span>
+                    </div>
+                    <div class="command-line" style="margin-left: 20px;">
+                        <span class="prompt">></span>
+                        <span class="command">Jun 2023 - Jun 2024 | Head of Information Security Group</span>
+                    </div>
+                    <div class="command-line" style="margin-left: 40px;">
+                        <span class="prompt">></span>
+                        <span class="command">Managed a team of security specialists overseeing critical infrastructure</span>
+                    </div>
+                    <div class="command-line" style="margin-left: 40px;">
+                        <span class="prompt">></span>
+                        <span class="command">Developed and enforced security policies compliant with industry regulations</span>
+                    </div>
+                    <div class="command-line" style="margin-left: 40px;">
+                        <span class="prompt">></span>
+                        <span class="command">Conducted penetration tests and security assessments for power plants</span>
+                    </div>
+                    <div class="command-line" style="margin-left: 40px;">
+                        <span class="prompt">></span>
+                        <span class="command">Coordinated response to security incidents and forensic investigations</span>
+                    </div>
+                    
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="cursor"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-folder">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Critical Infrastructure Protection</h3>
+                    <p class="project-description">Designed and implemented security architecture for power plant SCADA systems to prevent cyber attacks on critical infrastructure.</p>
+                    <div class="project-tech">
+                        <span class="tech-item">SCADA</span>
+                        <span class="tech-item">IEC 62351</span>
+                        <span class="tech-item">Network Security</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-folder">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Government Services Development</h3>
+                    <p class="project-description">Led security architecture design for national digital government services platform, implementing zero-trust principles and secure citizen authentication framework.</p>
+                    <div class="project-tech">
+                        <span class="tech-item">Zero Trust</span>
+                        <span class="tech-item">eID</span>
+                        <span class="tech-item">PKI</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-folder">
+                            <i class="fas fa-bug"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Automated Pentesting Toolkit</h3>
+                    <p class="project-description">Created custom penetration testing toolkit with automated vulnerability scanning and reporting capabilities.</p>
+                    <div class="project-tech">
+                        <span class="tech-item">Python</span>
+                        <span class="tech-item">Bash</span>
+                        <span class="tech-item">Metasploit</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact</h2>
+            </div>
+            <h3>Get In Touch</h3>
+            <p>I'm currently available for consulting engagements and interesting security projects. Feel free to reach out if you have any questions or would like to discuss potential collaboration.</p>
+            <a href="mailto:alex_hellberg@protonmail.ch" class="btn btn-primary" style="background-color: var(--secondary); color: var(--dark); border: none; box-shadow: var(--neon-shadow);">Send Message</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="mailto:alex_hellberg@protonmail.ch" class="social-link"><i class="fas fa-envelope"></i></a>
+                <a href="https://t.me/a_hberg" class="social-link"><i class="fab fa-telegram"></i></a>
+                <a href="https://github.com/alexbergh" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="https://alexbergh.github.io" class="social-link"><i class="fas fa-globe"></i></a>
+            </div>
+            <div class="footer-text">
+                <p>Designed & Built with <i class="fas fa-heart" style="color: var(--accent);"></i> by Alex Hellberg</p>
+                <p>© 2025 All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (navMenu.classList.contains('show')) {
+                    navMenu.classList.remove('show');
+                }
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
