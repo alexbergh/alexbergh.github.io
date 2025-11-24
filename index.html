@@ -288,7 +288,7 @@
         
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
             margin-top: 30px;
         }
@@ -726,38 +726,54 @@
                     
                     <div class="skills-container">
                         <div class="skill-category">
-                            <h3>Security Expertise</h3>
+                            <h3>Core Security Expertise</h3>
                             <ul class="skills">
-                                <li>Network Security</li>
+                                <li>Network Security & Segmentation</li>
                                 <li>Penetration Testing</li>
                                 <li>Vulnerability Assessment</li>
-                                <li>Incident Response</li>
-                                <li>Firewall Configuration</li>
-                                <li>Intrusion Detection/Prevention</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h3>Management & Compliance</h3>
-                            <ul class="skills">
-                                <li>Security Policy Development</li>
-                                <li>Risk Management</li>
-                                <li>Security Audits</li>
-                                <li>Team Leadership</li>
-                                <li>Regulatory Compliance</li>
-                                <li>Security Awareness Training</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h3>Technical Skills</h3>
-                            <ul class="skills">
+                                <li>Incident Response & Forensics</li>
                                 <li>SIEM Solutions</li>
-                                <li>Cloud Security (AWS, Azure)</li>
-                                <li>Cryptography</li>
+                                <li>Threat Modeling (STRIDE, PASTA)</li>
+                                <li>Zero Trust Architecture</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h3>Cloud & Container Security</h3>
+                            <ul class="skills">
+                                <li>Docker Security & Hardening</li>
+                                <li>Kubernetes Security (RBAC, PSP)</li>
+                                <li>EKS/AKS Security Architecture</li>
+                                <li>Container Image Scanning</li>
+                                <li>Runtime Protection (Falco)</li>
+                                <li>Supply-chain Security (SBOM)</li>
+                                <li>Cloud Workload Protection</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h3>DevSecOps & Automation</h3>
+                            <ul class="skills">
+                                <li>CI/CD Security Integration</li>
+                                <li>IaC Security (Terraform, Ansible)</li>
+                                <li>Secrets Management (Vault, KMS)</li>
+                                <li>Automated Compliance Pipelines</li>
                                 <li>Python/Bash Scripting</li>
-                                <li>Forensic Tools</li>
-                                <li>Threat Modeling</li>
+                                <li>Security as Code</li>
+                                <li>GitOps Security Practices</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h3>Leadership & Compliance</h3>
+                            <ul class="skills">
+                                <li>Security Architecture Design</li>
+                                <li>Team Leadership & Mentoring</li>
+                                <li>Risk Management & Assessment</li>
+                                <li>Security Policy Development</li>
+                                <li>Regulatory Compliance</li>
+                                <li>Security Audits</li>
+                                <li>Security Awareness Training</li>
                             </ul>
                         </div>
                     </div>
@@ -929,12 +945,8 @@
                             <i class="fas fa-bug"></i>
                         </div>
                         <div class="project-links">
-                            <!-- UPDATED LINKS HERE -->
                             <a href="https://github.com/alexbergh/secaudit-core" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub repo">
                                 <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://github.com/alexbergh/secaudit-core" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="Open repo">
-                                <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
                     </div>
@@ -944,6 +956,25 @@
                         <span class="tech-item">Python</span>
                         <span class="tech-item">Bash</span>
                         <span class="tech-item">Metasploit</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-folder">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/alexbergh/test-hard" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub repo">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Security Hardening & Monitoring Platform</h3>
+                    <p class="project-description">Advanced testing framework for security assessment and hardening procedures.</p>
+                    <div class="project-tech">
+                        <span class="tech-item">Python</span>
+                        <span class="tech-item">Testing</span>
+                        <span class="tech-item">Security</span>
                     </div>
                 </div>
             </div>
