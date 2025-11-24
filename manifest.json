@@ -1,0 +1,25 @@
+{
+  "name": "Alex Hellberg - Cybersecurity Professional",
+  "short_name": "Alex Hellberg",
+  "description": "Portfolio of Alex Hellberg - Security Architect specializing in penetration testing, Docker/Kubernetes security, and DevSecOps",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a12",
+  "theme_color": "#00f6ff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "security"],
+  "lang": "en-US"
+}

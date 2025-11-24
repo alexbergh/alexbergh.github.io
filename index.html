@@ -3,664 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Hellberg | Cybersecurity Specialist</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #0a0a12;
-            --secondary: #00f6ff;
-            --accent: #ff2a6d;
-            --light: #d1f7ff;
-            --dark: #010113;
-            --text: #8b8b9a;
-            --highlight: #1a1a2e;
-            --neon-shadow: 0 0 10px rgba(0, 246, 255, 0.7);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Courier New', 'Fira Code', monospace;
-        }
-        
-        body {
-            background-color: var(--primary);
-            color: var(--light);
-            line-height: 1.6;
-            overflow-x: hidden;
-            background-image: 
-                linear-gradient(rgba(0, 246, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 246, 255, 0.03) 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            background-color: rgba(10, 10, 18, 0.95);
-            color: var(--light);
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(5px);
-            border-bottom: 1px solid rgba(0, 246, 255, 0.2);
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo i {
-            font-size: 1.8rem;
-            color: var(--secondary);
-            margin-right: 10px;
-            text-shadow: var(--neon-shadow);
-        }
-        
-        .logo h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--light);
-            text-shadow: var(--neon-shadow);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 30px;
-        }
-        
-        nav ul li a {
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            font-size: 0.9rem;
-            position: relative;
-            text-shadow: var(--neon-shadow);
-        }
-        
-        nav ul li a:hover {
-            color: var(--secondary);
-        }
-        
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--secondary);
-            bottom: -5px;
-            left: 0;
-            transition: width 0.3s;
-        }
-        
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--light);
-            font-size: 1.5rem;
-            cursor: pointer;
-            text-shadow: var(--neon-shadow);
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 80px;
-            position: relative;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 40%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, var(--primary));
-            z-index: -1;
-        }
-        
-        .hero-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-        }
-        
-        .hero-text {
-            flex: 1;
-        }
-        
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            position: relative;
-        }
-        
-        .profile-circle {
-            width: 350px;
-            height: 350px;
-            border-radius: 50%;
-            border: 3px solid var(--secondary);
-            overflow: hidden;
-            position: relative;
-            box-shadow: 
-                0 0 20px rgba(0, 246, 255, 0.5),
-                inset 0 0 20px rgba(0, 246, 255, 0.3);
-        }
-        
-        .profile-circle img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .hero h2 {
-            font-size: 1.2rem;
-            color: var(--secondary);
-            margin-bottom: 20px;
-            font-weight: 400;
-            text-shadow: var(--neon-shadow);
-        }
-        
-        .hero h1 {
-            font-size: 4rem;
-            color: var(--light);
-            margin-bottom: 20px;
-            line-height: 1.1;
-            text-shadow: var(--neon-shadow);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 30px;
-            color: var(--text);
-        }
-        
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-        }
-        
-        .contact-item i {
-            color: var(--secondary);
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-        
-        .contact-item a {
-            color: var(--light);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .contact-item a:hover {
-            color: var(--secondary);
-        }
-        
-        /* About Section */
-        .section {
-            padding: 100px 0;
-        }
-        
-        .section-title {
-            display: flex;
-            align-items: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 2rem;
-            color: var(--light);
-            position: relative;
-            white-space: nowrap;
-            text-shadow: var(--neon-shadow);
-        }
-        
-        .section-title h2::before {
-            content: '>';
-            color: var(--secondary);
-            font-size: 1.5rem;
-            margin-right: 10px;
-            font-weight: 400;
-        }
-        
-        .section-title h2::after {
-            content: '';
-            display: block;
-            width: 300px;
-            height: 1px;
-            background: linear-gradient(90deg, var(--secondary), transparent);
-            margin-left: 20px;
-            position: relative;
-            top: 10px;
-        }
-        
-        .about-content {
-            display: flex;
-            gap: 50px;
-        }
-        
-        .about-text {
-            flex: 2;
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-        
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        .skill-category h3 {
-            color: var(--secondary);
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            text-shadow: var(--neon-shadow);
-        }
-        
-        .skills {
-            display: grid;
-            gap: 10px;
-        }
-        
-        .skills li {
-            color: var(--light);
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            position: relative;
-            padding-left: 20px;
-        }
-        
-        .skills li::before {
-            content: '>';
-            position: absolute;
-            left: 0;
-            color: var(--secondary);
-        }
-        
-        /* Experience Section */
-        .experience .section-title h2::before {
-            content: '>';
-        }
-        
-        .terminal {
-            background-color: var(--dark);
-            border-radius: 5px;
-            padding: 20px;
-            box-shadow: 
-                0 10px 30px rgba(0, 0, 0, 0.5),
-                inset 0 0 10px rgba(0, 246, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(0, 246, 255, 0.2);
-        }
-        
-        .terminal-header {
-            display: flex;
-            margin-bottom: 15px;
-        }
-        
-        .terminal-btn {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            margin-right: 8px;
-        }
-        
-        .btn-red { background-color: #ff5f56; }
-        .btn-yellow { background-color: #ffbd2e; }
-        .btn-green { background-color: #27c93f; }
-        
-        .terminal-title {
-            color: var(--text);
-            font-size: 0.9rem;
-            margin-left: 10px;
-        }
-        
-        .command-line {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        
-        .prompt {
-            color: var(--secondary);
-            margin-right: 10px;
-        }
-        
-        .command {
-            color: var(--light);
-            font-family: 'Fira Code', monospace;
-        }
-        
-        .cursor {
-            display: inline-block;
-            width: 10px;
-            height: 20px;
-            background-color: var(--secondary);
-            animation: blink 1s infinite;
-            vertical-align: middle;
-        }
-        
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-        
-        .job-title {
-            color: var(--light);
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-        }
-        
-        .job-company {
-            color: var(--secondary);
-        }
-        
-        .job-period {
-            color: var(--text);
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-        }
-        
-        .job-description {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 20px;
-        }
-        
-        .job-description::before {
-            content: '>';
-            position: absolute;
-            left: 0;
-            color: var(--secondary);
-        }
-        
-        /* Projects Section */
-        .projects .section-title h2::before {
-            content: '>';
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 50px;
-        }
-        
-        .project-card {
-            background-color: var(--highlight);
-            border-radius: 5px;
-            padding: 30px;
-            transition: all 0.3s;
-            position: relative;
-            z-index: 1;
-            height: 100%;
-            border: 1px solid rgba(0, 246, 255, 0.1);
-        }
-        
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 
-                0 10px 20px rgba(0, 246, 255, 0.2),
-                inset 0 0 10px rgba(0, 246, 255, 0.1);
-        }
-        
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 5px;
-            background: linear-gradient(135deg, rgba(0, 246, 255, 0.1) 0%, rgba(0, 246, 255, 0) 100%);
-            z-index: -1;
-        }
-        
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-        
-        .project-folder {
-            color: var(--secondary);
-            font-size: 2.5rem;
-        }
-        
-        .project-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .project-link {
-            color: var(--light);
-            font-size: 1.2rem;
-            transition: color 0.3s;
-        }
-        
-        .project-link:hover {
-            color: var(--secondary);
-        }
-        
-        .project-title {
-            color: var(--light);
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-        
-        .project-description {
-            margin-bottom: 20px;
-            color: var(--text);
-        }
-        
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        
-        .tech-item {
-            font-family: 'Courier New', monospace;
-            font-size: 0.8rem;
-            color: var(--text);
-            border: 1px solid rgba(0, 246, 255, 0.3);
-            padding: 3px 8px;
-            border-radius: 3px;
-        }
-        
-        /* Contact Section */
-        .contact {
-            text-align: center;
-        }
-        
-        .contact .section-title {
-            justify-content: center;
-        }
-        
-        .contact .section-title h2::before {
-            content: '>';
-        }
-        
-        .contact h3 {
-            font-size: 2.5rem;
-            color: var(--light);
-            margin-bottom: 20px;
-            text-shadow: var(--neon-shadow);
-        }
-        
-        .contact p {
-            max-width: 600px;
-            margin: 0 auto 50px;
-            color: var(--text);
-        }
-        
-        /* Footer */
-        footer {
-            padding: 30px 0;
-            text-align: center;
-            border-top: 1px solid rgba(0, 246, 255, 0.2);
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .social-link {
-            color: var(--light);
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-        
-        .social-link:hover {
-            color: var(--secondary);
-        }
-        
-        .footer-text {
-            color: var(--text);
-            font-size: 0.9rem;
-            font-family: 'Courier New', monospace;
-        }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        /* Responsive */
-        @media (max-width: 992px) {
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hero-text {
-                margin-bottom: 50px;
-            }
-            
-            .contact-info {
-                grid-template-columns: 1fr;
-            }
-            
-            .skills-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .section-title h2::after {
-                width: 200px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary);
-                flex-direction: column;
-                padding: 20px 0;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-                border-bottom: 1px solid rgba(0, 246, 255, 0.2);
-            }
-            
-            nav ul.show {
-                display: flex;
-            }
-            
-            nav ul li {
-                margin: 0;
-                padding: 10px 20px;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .section-title h2::after {
-                width: 100px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .profile-circle {
-                width: 250px;
-                height: 250px;
-            }
-            
-            .section-title h2::after {
-                display: none;
-            }
-        }
-    </style>
+    <meta name="description" content="Alex Hellberg - Experienced cybersecurity professional specializing in security architecture, penetration testing, Docker/Kubernetes security, and DevSecOps. Available for consulting engagements.">
+    <meta name="keywords" content="cybersecurity, security architect, penetration testing, Docker security, Kubernetes, DevSecOps, cloud security, CISO">
+    <meta name="author" content="Alex Hellberg">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alexbergh.github.io/">
+    <meta property="og:title" content="Alex Hellberg | Cybersecurity Specialist & Security Architect">
+    <meta property="og:description" content="Experienced cybersecurity professional specializing in security architecture, penetration testing, and DevSecOps.">
+    <meta property="og:image" content="https://alexbergh.github.io/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Alex Hellberg | Cybersecurity Specialist">
+    <meta name="twitter:description" content="Security Architect specializing in Docker/Kubernetes security and DevSecOps">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00f6ff">
+    
+    <!-- Security -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    
+    <title>Alex Hellberg | Cybersecurity Specialist & Security Architect</title>
+    
+    <!-- Preconnect for external resources -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://media.licdn.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo">
-                <i class="fas fa-user-secret"></i>
+                <i class="fas fa-user-secret" aria-hidden="true"></i>
                 <h1>Alex Hellberg</h1>
             </div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false">
+                <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
-            <nav>
+            <nav role="navigation" aria-label="Main navigation">
                 <ul id="navMenu">
                     <li><a href="#about">About</a></li>
                     <li><a href="#experience">Experience</a></li>
@@ -671,34 +66,36 @@
         </div>
     </header>
 
+    <!-- Main Content -->
+    <main>
     <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section class="hero" id="home" aria-labelledby="hero-heading">
         <div class="container hero-content">
             <div class="hero-text">
-                <h2>CYBERSECURITY SPECIALIST / ARCHITECT</h2>
-                <h1>Alex Hellberg</h1>
+                <h2 aria-label="Role">CYBERSECURITY SPECIALIST / ARCHITECT</h2>
+                <h1 id="hero-heading">Alex Hellberg</h1>
                 <p>Experienced cybersecurity professional specializing in security architecture, penetration testing, and network security with leadership experience in information security teams.</p>
                 
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <a href="mailto:alex_hellberg@protonmail.ch">git.upstate674@passinbox.com</a>
+                        <a href="#" data-email="obfuscated">[email protected]</a>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-telegram"></i>
-                        <a href="https://t.me/a_hberg" target="_blank">@ahberg_work</a>
+                        <a href="https://t.me/ahberg_work" target="_blank" rel="noopener noreferrer">@ahberg_work</a>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-linkedin"></i>
-                        <a href="https://www.linkedin.com/in/alex-hellberg/" target="_blank">linkedin.com/in/alex-hellberg</a>
+                        <a href="https://www.linkedin.com/in/alex-hellberg/" target="_blank" rel="noopener noreferrer">linkedin.com/in/alex-hellberg</a>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-globe"></i>
-                        <a href="https://alexbergh.github.io" target="_blank">alexbergh.github.io</a>
+                        <a href="https://alexbergh.github.io" target="_blank" rel="noopener noreferrer">alexbergh.github.io</a>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-github"></i>
-                        <a href="https://github.com/alexbergh" target="_blank">github.com/alexbergh</a>
+                        <a href="https://github.com/alexbergh" target="_blank" rel="noopener noreferrer">github.com/alexbergh</a>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
@@ -708,17 +105,17 @@
             </div>
             <div class="hero-image">
                 <div class="profile-circle">
-                    <img src="https://media.licdn.com/dms/image/C4D03AQH79mObW8i1sg/profile-displayphoto-shrink_800_800/0/1557756960157?e=2147483647&v=beta&t=iDpk-_oHWQwIOZkwEnojoN1IzId9oWcTfmBJs9cS1_o" alt="Alex Hellberg">
+                    <img src="https://media.licdn.com/dms/image/C4D03AQH79mObW8i1sg/profile-displayphoto-shrink_800_800/0/1557756960157?e=2147483647&v=beta&t=iDpk-_oHWQwIOZkwEnojoN1IzId9oWcTfmBJs9cS1_o" alt="Alex Hellberg - Cybersecurity Professional" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="section" id="about">
+    <section class="section" id="about" aria-labelledby="about-heading">
         <div class="container">
             <div class="section-title">
-                <h2>About Me</h2>
+                <h2 id="about-heading">About Me</h2>
             </div>
             <div class="about-content">
                 <div class="about-text">
@@ -783,10 +180,10 @@
     </section>
 
     <!-- Experience Section -->
-    <section class="section experience" id="experience">
+    <section class="section experience" id="experience" aria-labelledby="experience-heading">
         <div class="container">
             <div class="section-title">
-                <h2>Professional Experience</h2>
+                <h2 id="experience-heading">Professional Experience</h2>
             </div>
             <div class="terminal">
                 <div class="terminal-header">
@@ -804,7 +201,7 @@
                     <!-- RTK-IB LLC -->
                     <div class="command-line">
                         <span class="prompt">></span>
-                        <span class="command" style="color: var(--secondary);">RTK-IB LLC (rt-is.ru)</span>
+                        <span class="command terminal-company">RTK-IB LLC (rt-is.ru)</span>
                     </div>
                     <div class="command-line" style="margin-left: 20px;">
                         <span class="prompt">></span>
@@ -844,7 +241,7 @@
                     <!-- X5 Group -->
                     <div class="command-line">
                         <span class="prompt">></span>
-                        <span class="command" style="color: var(--secondary);">X5 Group</span>
+                        <span class="command terminal-company">X5 Group</span>
                     </div>
                     <div class="command-line" style="margin-left: 20px;">
                         <span class="prompt">></span>
@@ -872,7 +269,7 @@
                     <!-- Inter RAO -->
                     <div class="command-line">
                         <span class="prompt">></span>
-                        <span class="command" style="color: var(--secondary);">Inter RAO - Electric Power Plants, JSC</span>
+                        <span class="command terminal-company">Inter RAO - Electric Power Plants, JSC</span>
                     </div>
                     <div class="command-line" style="margin-left: 20px;">
                         <span class="prompt">></span>
@@ -905,10 +302,10 @@
     </section>
 
     <!-- Projects Section -->
-    <section class="section projects" id="projects">
+    <section class="section projects" id="projects" aria-labelledby="projects-heading">
         <div class="container">
             <div class="section-title">
-                <h2>Projects</h2>
+                <h2 id="projects-heading">Projects</h2>
             </div>
             <div class="projects-grid">
                 <div class="project-card">
@@ -982,61 +379,74 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="section contact" id="contact">
+    <section class="section contact" id="contact" aria-labelledby="contact-heading">
         <div class="container">
             <div class="section-title">
-                <h2>Contact</h2>
+                <h2 id="contact-heading">Contact</h2>
             </div>
             <h3>Get In Touch</h3>
             <p>I'm currently available for consulting engagements and interesting security projects. Feel free to reach out if you have any questions or would like to discuss potential collaboration.</p>
-            <a href="mailto:git.upstate674@passinbox.com" class="btn btn-primary" style="background-color: var(--secondary); color: var(--dark); border: none; box-shadow: var(--neon-shadow);">Send Message</a>
+            <a href="#" data-email="obfuscated" class="btn btn-contact" aria-label="Send email to Alex Hellberg">Send Message</a>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="social-links">
-                <a href="mailto:git.upstate674@passinbox.com" class="social-link"><i class="fas fa-envelope"></i></a>
-                <a href="https://t.me/ahberg_work" class="social-link"><i class="fab fa-telegram"></i></a>
-                <a href="https://www.linkedin.com/in/alex-hellberg/" class="social-link"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/alexbergh" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="https://alexbergh.github.io" class="social-link"><i class="fas fa-globe"></i></a>
+                <a href="#" data-email="obfuscated" class="social-link" aria-label="Email Alex Hellberg"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                <a href="https://t.me/ahberg_work" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/alex-hellberg/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                <a href="https://github.com/alexbergh" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><i class="fab fa-github" aria-hidden="true"></i></a>
+                <a href="https://alexbergh.github.io" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Website"><i class="fas fa-globe" aria-hidden="true"></i></a>
             </div>
             <div class="footer-text">
-                <p>Designed & Built with <i class="fas fa-heart" style="color: var(--accent);"></i> by Alex Hellberg</p>
+                <p>Designed & Built with <i class="fas fa-heart" class="heart-icon" aria-hidden="true"></i> by Alex Hellberg</p>
                 <p>© 2025 All Rights Reserved</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
-        });
-        
-        // Smooth Scrolling for Anchor Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                if (navMenu.classList.contains('show')) {
-                    navMenu.classList.remove('show');
-                }
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            });
-        });
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Alex Hellberg",
+        "jobTitle": "Security Architect",
+        "description": "Experienced cybersecurity professional specializing in security architecture, penetration testing, Docker/Kubernetes security, and DevSecOps",
+        "url": "https://alexbergh.github.io",
+        "sameAs": [
+            "https://www.linkedin.com/in/alex-hellberg/",
+            "https://github.com/alexbergh",
+            "https://t.me/ahberg_work"
+        ],
+        "email": "git.upstate674@passinbox.com",
+        "knowsAbout": [
+            "Cybersecurity",
+            "Security Architecture",
+            "Penetration Testing",
+            "Docker Security",
+            "Kubernetes Security",
+            "DevSecOps",
+            "Cloud Security",
+            "Network Security",
+            "SIEM",
+            "Incident Response"
+        ],
+        "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Security Architect",
+            "occupationLocation": {
+                "@type": "City",
+                "name": "Kaliningrad"
+            }
+        }
+    }
     </script>
+    
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
