@@ -155,8 +155,9 @@
             // Set href
             link.href = 'mailto:' + email;
             
-            // Set text content if it's placeholder
-            if (link.textContent === '[email protected]' || link.textContent === '') {
+            // Only set text content if it's a text link (not icon-only social links)
+            var hasIcon = link.querySelector('i');
+            if (!hasIcon && (link.textContent === '[email protected]' || link.textContent.trim() === '')) {
                 link.textContent = email;
             }
             

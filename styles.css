@@ -191,6 +191,7 @@ nav ul li a:hover::after {
 .contact-item {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .contact-item i {
@@ -628,6 +629,11 @@ footer {
     
     .hero h1 {
         font-size: 2.5rem;
+    }
+    
+    .section-title h2 {
+        white-space: normal;
+        word-wrap: break-word;
     }
     
     .section-title h2::after {
