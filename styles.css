@@ -176,7 +176,8 @@ nav ul li a:hover::after {
     max-width: 600px;
     margin: 0 auto 30px auto;
     color: var(--text);
-    text-align: center;
+    text-align: justify;
+    text-align-last: center;
 }
 
 .contact-info {
