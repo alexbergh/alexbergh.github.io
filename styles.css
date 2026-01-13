@@ -174,8 +174,9 @@ nav ul li a:hover::after {
 .hero p {
     font-size: 1.2rem;
     max-width: 600px;
-    margin-bottom: 30px;
+    margin: 0 auto 30px auto;
     color: var(--text);
+    text-align: center;
 }
 
 .contact-info {
